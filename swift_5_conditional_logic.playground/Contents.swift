@@ -60,22 +60,22 @@ var someCharacter: Character = "e"
 
 switch someCharacter {
     
-case "a", "e", "i", "o", "u":
-    print("\(someCharacter) is a lower-case vowel.")
-    
-case "A", "E", "I", "O", "U":
-    print("\(someCharacter) is a upper-case vowel.")
-    
-case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
-"n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
-    print("\(someCharacter) is a lower-case consonant.")
-    
-case "B", "C", "D", "F", "G", "H", "J", "K", "L", "M",
-"N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z":
-    print("\(someCharacter) is a upper-case consonant.")
-    
-default:
-    print("\(someCharacter) is not a vowel or a consonant!")
+    case "a", "e", "i", "o", "u":
+        print("\(someCharacter) is a lower-case vowel.")
+        
+    case "A", "E", "I", "O", "U":
+        print("\(someCharacter) is a upper-case vowel.")
+        
+    case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+    "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+        print("\(someCharacter) is a lower-case consonant.")
+        
+    case "B", "C", "D", "F", "G", "H", "J", "K", "L", "M",
+    "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z":
+        print("\(someCharacter) is a upper-case consonant.")
+        
+    default:
+        print("\(someCharacter) is not a vowel or a consonant!")
 }
 
 //------------------------------------------------------------------------------
@@ -90,23 +90,23 @@ var generalAmount: String
 
 switch playersGold {
     
-case 0:
-    generalAmount = "no"
-    
-case 1..<5:
-    generalAmount = "only a few"
-    
-case 5..<12:
-    generalAmount = "several"
-    
-case 12..<100:
-    generalAmount = "dozens of"
-    
-case 100..<1000:
-    generalAmount = "hundreds of"
-    
-default:
-    generalAmount = "a considerable amount of"
+    case 0:
+        generalAmount = "no"
+        
+    case 1..<5:
+        generalAmount = "only a few"
+        
+    case 5..<12:
+        generalAmount = "several"
+        
+    case 12..<100:
+        generalAmount = "dozens of"
+        
+    case 100..<1000:
+        generalAmount = "hundreds of"
+        
+    default:
+        generalAmount = "a considerable amount of"
 }
 
 let shopKeeperText = "I see that you have \(generalAmount) gold coins."
