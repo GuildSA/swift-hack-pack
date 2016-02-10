@@ -6,10 +6,16 @@ import UIKit
 // You can use the for-in loop to iterate over a sequence, such as ranges of
 // numbers, items in an array, or characters in a string.
 
-// This example uses a range of numbers to prints out a test message 4 times.
+// This example uses a range of numbers to print out a test message 4 times.
 
 for index in 0...3 {
-    print("For-In Test A: \(index)")
+    print("Current index is: \(index)")
+}
+
+// This for-in loop also uses a range of numbers to print out a test message, 
+// but calls reverse on it to print the index values in reverse order.
+for index in (0...3).reverse() {
+    print("Current index is: \(index)")
 }
 
 //------------------------------------------------------------------------------

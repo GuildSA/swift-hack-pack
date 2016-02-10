@@ -13,12 +13,19 @@ import UIKit
 
 class Enemy {
     
-    var weapon: String = "Sword"
-    var attackDamage: Int = 15
+    var weapon: String = "Club"
+    var attackDamage: Int = 5
     var healthPoints: Int = 100
     
     init() {
-        print("New Enemy Initialized!")
+        print("New Enemy Initialized with default values!")
+    }
+    
+    init(defaultWeapon weapon:String, attackDamage damage: Int, healthPoints health:Int) {
+        print("New Enemy Initialized with custom values!")
+        self.weapon = weapon
+        self.attackDamage = damage
+        self.healthPoints = health
     }
     
     func attack() {
@@ -26,9 +33,7 @@ class Enemy {
     }
     
     func applyDamage(damage:Int) {
-        
         healthPoints -= damage
-        
         print("HealthPoints reduced to \(healthPoints)")
     }
 }
@@ -36,9 +41,9 @@ class Enemy {
 //------------------------------------------------------------------------------
 
 // Now, for the next version of our game, we want to add a new type of enemy
-// that uses magic. We could add new variables and methods to the Enemy class
+// that uses magic. We could add new properties and methods to the Enemy class
 // so all enemies can use magic, but that's a waste of memory since only the
-// new warlock enemies really need it.
+// new warlock enemies really need them.
 
 // But if we create a new class called Warlock that inherits from Enemy, we can
 // use everything in Enemy and add just the new variables and methods that are
@@ -46,34 +51,68 @@ class Enemy {
 
 class Warlock : Enemy {
     
-    var magicPoints:Int = 100
+    var spellDamage: Int = 10
+    var magicPoints: Int = 500
     
     override init() {
         
+        // This will call the init in Enemy so it sets all of its defaults
+        // before we alter any of them.
         super.init()
         
-        print("New Warlock Initialized!")
+        print("New Warlock Initialized with default values!")
         
         weapon = "Magic Staff"
+        attackDamage = 25
     }
     
     override func attack() {
-        
-        print("Warlock attacks with \(weapon)")
+        print("Warlock attacks with \(weapon) for \(attackDamage) points of damage!")
         
         magicPoints -= 5
-        
         print("MagicPoints reduced to \(magicPoints)")
+    }
+    
+    func castSpell() {
+        print("Warlock casts a spell for \(spellDamage) points of damage!")
+        
+        magicPoints -= 10
+        print("MagicPoints reduced to \(magicPoints)")
+    }
+    
+    func teleport() {
+        print("Warlock teleports to new a position!")
     }
 }
 
-var enemy1 = Enemy()
+var typicalEnemy = Enemy()
 
-enemy1.attack()
-enemy1.applyDamage(5)
+print(typicalEnemy.weapon)
+print(typicalEnemy.attackDamage)
+print(typicalEnemy.healthPoints)
 
-var warLock1 = Warlock()
+typicalEnemy.attack()
+typicalEnemy.applyDamage(10)
 
-warLock1.attack()
-warLock1.applyDamage(10)
+
+
+var typicalWarlock = Warlock()
+
+print(typicalWarlock.weapon)
+print(typicalWarlock.attackDamage)
+print(typicalWarlock.healthPoints)
+print(typicalWarlock.magicPoints)
+
+typicalWarlock.attack()
+typicalWarlock.applyDamage(10)
+typicalWarlock.castSpell()
+typicalWarlock.teleport()
+
+//------------------------------------------------------------------------------
+
+// Keep in mind that we can not create a Warlock using the custom initializer
+// defined by Enemy, so the line below will not compile! You will need to either
+// override it or define a completely new initializer just for Warlocks.
+
+//var bossWarlock = Warlock(defaultWeapon: "Staff of Lightning", attackDamage: 45, healthPoints: 250)
 

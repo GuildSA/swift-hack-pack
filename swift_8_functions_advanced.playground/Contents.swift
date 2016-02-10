@@ -201,15 +201,3 @@ let computeFunction = getCustomFunction(0)
 var answer = computeFunction(1, 2)
 
 print(answer)
-
-
-
-
-
-
-
-
-
-
-
-

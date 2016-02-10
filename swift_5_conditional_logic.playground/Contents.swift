@@ -93,16 +93,13 @@ switch playersGold {
     case 0:
         generalAmount = "no"
         
-    case 1..<5:
+    case 1...5:
         generalAmount = "only a few"
         
-    case 5..<12:
-        generalAmount = "several"
-        
-    case 12..<100:
-        generalAmount = "dozens of"
-        
-    case 100..<1000:
+    case 5...100:
+        generalAmount = "some"
+
+    case 100...1000:
         generalAmount = "hundreds of"
         
     default:

@@ -10,12 +10,19 @@ import UIKit
 
 class Enemy {
     
-    var weapon: String = "Sword"
-    var attackDamage: Int = 15
+    var weapon: String = "Club"
+    var attackDamage: Int = 5
     var healthPoints: Int = 100
     
     init() {
-        print("New Enemy Initialized!")
+        print("New Enemy Initialized with default values!")
+    }
+    
+    init(defaultWeapon weapon:String, attackDamage damage: Int, healthPoints health:Int) {
+        print("New Enemy Initialized with custom values!")
+        self.weapon = weapon
+        self.attackDamage = damage
+        self.healthPoints = health
     }
     
     func attack() {
@@ -23,21 +30,33 @@ class Enemy {
     }
     
     func applyDamage(damage:Int) {
-        
         healthPoints -= damage
-        
         print("HealthPoints reduced to \(healthPoints)")
     }
 }
 
-var enemy1 = Enemy()
+var typicalEnemy = Enemy()
 
-enemy1.attack()
-enemy1.applyDamage(5)
+print(typicalEnemy.weapon)
+print(typicalEnemy.attackDamage)
+print(typicalEnemy.healthPoints)
+
+typicalEnemy.attack()
+typicalEnemy.applyDamage(10)
+
+
+var bossEnemy = Enemy(defaultWeapon: "Magic Sword", attackDamage: 35, healthPoints: 200)
+
+print(bossEnemy.weapon)
+print(bossEnemy.attackDamage)
+print(bossEnemy.healthPoints)
+
+bossEnemy.attack()
+bossEnemy.applyDamage(10)
 
 //------------------------------------------------------------------------------
 
-// Since Structures and Classes are so similar, lets list the additional 
+// Since Structures and Classes are so similar, lets list the additional
 // capabilities and benefits gained by using class over struct:
 
 // 1. Inheritance enables one class to inherit the characteristics of another.
@@ -49,8 +68,9 @@ enemy1.applyDamage(5)
 //    it has assigned.
 
 // 4. Reference counting allows more than one reference to a class instance.
-
-// 5. Structs are value types and classes are reference types.
+//    In other words, Structs are value types and classes are reference types.
+//    This means Structures are always copied when they are passed around in
+//    your code, and do not use reference counting.
 
 //------------------------------------------------------------------------------
 
@@ -60,56 +80,60 @@ enemy1.applyDamage(5)
 // function argument. Numbers, strings, arrays, dictionaries, enums, tuples,
 // and structs are Value Types.
 
-// For Example:
+// For example, the function below can use the var keyword to modify the
+// parameter "paramText" inside the function, but it's only a copy of the
+// String variable "myText" that was passed in. Changes to "paramText" do not
+// alter the original variable "myText" that was passed into the function.
 
-func modifyString(var someText: String) {
+func modifyString(var paramText: String) {
     
-    // We can modify someText but it's only a copy of the text var that was
-    // passed in.
-    someText += ", world!"
+    paramText = "Hello, " + paramText + "!"
 }
 
-var text = "Hello"
+var myText = "world"
 
-modifyString(text)
+print(myText)
 
-print(text)
+modifyString(myText)
+
+print(myText)
+
+//------------------------------------------------------------------------------
 
 // Reference Types, such as classes and functions, can have multiple owners.
 // When assigning a reference to a new variable or passing it to a function,
 // those locations all point to the same instance.
 
-// For Example:
+// For example, if we create a class called "MyClass", we can pass an instance
+// of it to a function and that function can change it some way that will 
+// persist even after the function call has returned.
 
-class TestClass {
+class MyClass {
     
     var someText: String
     
-    init(someText: String) {
-        self.someText = someText
+    init(paramText: String) {
+        
+        self.someText = paramText
     }
 }
 
-func modifyInstance(myInstance: TestClass) {
+// We can modify the someText property variable of a MyClass instance and
+// it will persist because instances of a class are Reference Types which are
+// not copied when passed into the function.
+func modifyInstance(myInstance: MyClass) {
     
-    // We can modify the someText var of a TestClass instance and it will 
-    // persist because instances of a class are Reference Types which are not
-    // copied.
-    myInstance.someText += ", world!"
+    myInstance.someText = "Hello, " + myInstance.someText + "!"
 }
 
-var myClass = TestClass(someText: "Hello")
 
-modifyInstance(myClass)
+var myInstance = MyClass(paramText: "world")
 
-print(myClass.someText)
+print(myInstance.someText)
+
+modifyInstance(myInstance)
+
+print(myInstance.someText)
 
 //------------------------------------------------------------------------------
-
-
-
-
-
-
-
 

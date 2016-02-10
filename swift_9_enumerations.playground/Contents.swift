@@ -4,37 +4,40 @@ import UIKit
 
 // Enumerations
 
-// An enumeration defines a common type for a group of related values and 
+// An enumeration defines a common type for a group of related values and
 // enables you to work with those values in a type-safe way within your code.
 
-enum Direction {
+enum JoystickDirection {
     case Up
     case Down
     case Left
     case Right
 }
 
-var playerDirection = Direction.Up
+var joystickInput = JoystickDirection.Up
 
-print("Player is heading \(playerDirection).")
+print("Joystick is being pushed: \(joystickInput).")
 
 //------------------------------------------------------------------------------
 
-playerDirection = Direction.Down
+// A switch statement is a great way to process the value of a variable that is
+// an enumeration type.
 
-switch playerDirection {
+joystickInput = JoystickDirection.Down
+
+switch joystickInput {
     
-    case .Up:
-        print("The player is heading up!")
+case .Up:
+    print("The joystick is being pushed up!")
     
-    case .Down:
-        print("The player is heading down!")
+case .Down:
+    print("The joystick is being pushed down!")
     
-    case .Left:
-        print("The player is heading left!")
+case .Left:
+    print("The joystick is being pushed left!")
     
-    case .Right:
-        print("The player is heading right!")
+case .Right:
+    print("The joystick is being pushed right!")
 }
 
 //------------------------------------------------------------------------------
@@ -51,11 +54,17 @@ enum Letters: Character {
 }
 
 
+// If we assign Raw Values to the enumeration's, the enumeration automatically
+// receives an initializer that can be used to create a new enumeration
+// variable by passing in one of the Raw Values.
+
 var possibleLetter = Letters(rawValue: "A")
 
 print(possibleLetter)
 
 
+// If the raw value that was passed in can not be turned into an enumeration
+// the initializer will return nil.
 possibleLetter = Letters(rawValue: "X")
 
 print(possibleLetter)
@@ -65,8 +74,8 @@ print(possibleLetter)
 
 // Implicitly Assigned Raw Values
 
-// When you’re working with enumerations that store integer or string raw values, 
-// you don’t have to explicitly assign a raw value for each case. When you don’t, 
+// When you’re working with enumerations that store integer or string raw values,
+// you don’t have to explicitly assign a raw value for each case. When you don’t,
 // Swift will automatically assign the values for you.
 
 enum GameServerErrors: Int {
@@ -79,8 +88,8 @@ enum GameServerErrors: Int {
     case SavePlayerData // This will automatically bet set to 504
 }
 
-// If you want to know what the raw value of the Enum value is, you can call
-// .rawValue on an enum variable to access it.
+// If you want to know what the raw value of the enumeration value is, you can
+// call .rawValue on an enumeration variable to access it.
 
 var error = GameServerErrors.LoadLevelData
 
@@ -95,13 +104,13 @@ print(error.rawValue)
 // Associated Values
 
 // You can define Swift enumerations that are capable of storing associated
-// values which allows the enum types to be customized during assignment.
+// values which allows the enumeration types to be customized during assignment.
 
 enum WeaponTypes {
     
     case Sword(String, Int)
     case Bow(String, Int)
-    case Dart(Int)
+    case WoodenClub(Int)
     case Rock(Int)
 }
 
@@ -109,7 +118,7 @@ var playerWeapon = WeaponTypes.Sword("Short Sword", 25)
 
 playerWeapon = .Bow("Long Bow", 10)
 
-playerWeapon = .Dart(2)
+playerWeapon = .WoodenClub(2)
 
 playerWeapon = .Rock(1)
 
@@ -119,24 +128,24 @@ switch playerWeapon {
     
     case .Sword(let name, let damage):
         print("The player is attacking with a \(name) for \(damage) points of damage.")
-    
+        
     case .Bow(let name, let damage):
         print("The player is attacking with a \(name) for \(damage) points of damage.")
-    
-    case .Dart(let damage):
-        print("The player is attacking with a dart for \(damage) points of damage.")
-    
+        
+    case .WoodenClub(let damage):
+        print("The player is attacking with a WoodenClub for \(damage) points of damage.")
+        
     case .Rock(let damage):
         print("The player is attacking with a rock for \(damage) points of damage.")
 }
 
 //------------------------------------------------------------------------------
 
-// Default Enum Value
+// Assigning a Default Enumeration Value
 
-// If you didn’t want to select a specific enum value when creating an 
-// instance then you can provide an init method which defaults to one of
-// the enum values.
+// If you don’t want to select a specific enumeration value when creating an
+// instance then you can provide an initializer method which defaults to one of
+// the enumeration values.
 
 enum ArmorTypes {
     
@@ -145,6 +154,8 @@ enum ArmorTypes {
     case Plate
     
     init() {
+        
+        // Everyone has at least Leather armor!
         self = .Leather
     }
 }
