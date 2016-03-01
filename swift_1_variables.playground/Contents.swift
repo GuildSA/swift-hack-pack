@@ -4,8 +4,8 @@ import UIKit
 // This one line is a comment!
 
 /*
-This is a comment that can
-written over multiple lines!
+This is a comment that can span
+over multiple lines!
 */
 
 // Use the var keyword to declare a variable.
