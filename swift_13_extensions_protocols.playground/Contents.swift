@@ -76,10 +76,10 @@ protocol Weapon {
     func description()
 }
 
-// This protocol declares a single method called Speak.
-// Any class that conforms to this protocol must implement this method. Try this by adding two classes that conform to your protocol:
+// Any class that conforms to this protocol must implement these methods 
+// and properties. Below are two classes that conform to our Weapon protocol:
 
-class ShortSword: Weapon {
+class ShortSword : Weapon {
     
     var attackDamage: Int = 10
     
@@ -92,7 +92,7 @@ class ShortSword: Weapon {
     }
 }
 
-class BattleAx: Weapon {
+class BattleAx : Weapon {
     
     var attackDamage: Int = 20
     
@@ -127,7 +127,7 @@ protocol Enchantment {
 // This means it must implement everything required by both the Weapon and
 // Enchantment protocols.
 
-class MagicSword: Weapon, Enchantment {
+class MagicSword : Weapon, Enchantment {
     
     let attackDamage: Int = 20
     var magicPoints: Int = 500

@@ -43,7 +43,7 @@ class Enemy {
 // Now, for the next version of our game, we want to add a new type of enemy
 // that uses magic. We could add new properties and methods to the Enemy class
 // so all enemies can use magic, but that's a waste of memory since only the
-// new warlock enemies really need them.
+// new Warlock enemies really need them.
 
 // But if we create a new class called Warlock that inherits from Enemy, we can
 // use everything in Enemy and add just the new variables and methods that are

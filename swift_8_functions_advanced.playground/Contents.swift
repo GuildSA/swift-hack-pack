@@ -48,8 +48,8 @@ func getPlayerDataFromServer() -> Response {
 
 let responseCode: Response = getPlayerDataFromServer()
 
-print(responseCode)
-
+print(responseCode.code)
+print(responseCode.message)
 
 //------------------------------------------------------------------------------
 

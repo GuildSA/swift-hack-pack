@@ -88,7 +88,7 @@ var rocketCount = 0
 
 while rocketCount < numRocketsToFire {
     
-    ++rocketCount
+    rocketCount += 1
     
     print( "Firing rocket #\(rocketCount)" )
 }
@@ -110,7 +110,7 @@ while number < 10 {
         break
     }
     
-    ++number
+    number += 1
 }
 
 //------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ var answer = 0
 
 while answer < 100 {
     
-    ++answer
+    answer += 1
     
     if answer != 42 {
         
@@ -149,7 +149,7 @@ repeat {
     
     print( "repeat-while test \(number)" )
     
-    ++number
+    number += 1
     
 } while number < 5
 

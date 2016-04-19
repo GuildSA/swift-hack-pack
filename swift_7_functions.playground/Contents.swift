@@ -78,7 +78,7 @@ print( sayGameOver4("Charles", score: 2000) )
 // supports, separated by a space.
 
 // The function below specifes both external and internal parameter names for
-// both of its argiments.
+// both of its arguments.
 
 func sayGameOver5(playersName name: String, playersScore score: Int) -> String {
     
