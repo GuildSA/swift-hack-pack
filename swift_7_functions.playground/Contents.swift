@@ -2,8 +2,8 @@
 import UIKit
 
 
-// Functions are self-contained chunks of code that perform a specific task. 
-// You give a function a name that identifies what it does, and this name 
+// Functions are self-contained chunks of code that perform a specific task.
+// You give a function a name that identifies what it does, and this name
 // is used to “call” the function to perform its task when needed.
 
 // This is a simple function called "sayGameOver". It takes no arguments and
@@ -50,11 +50,11 @@ print( sayGameOver3("Jennifer") )
 //------------------------------------------------------------------------------
 
 // Functions can have more than one argument. This function takes two arguments:
-// one that is a String for the player's name and a second one that is an Int 
+// one that is a String for the player's name and a second one that is an Int
 // which represents the player's score.
 
 func sayGameOver4(name: String, score: Int) -> String {
-
+    
     let text = "Game Over, \(name)! Your final score is \(score)"
     
     return text
@@ -74,10 +74,10 @@ print( sayGameOver4("Charles", score: 2000) )
 // If we want to, we can specify special External Parameter Names which are only
 // used when calling the function
 
-// You write an external parameter name before the local parameter name it 
+// You write an external parameter name before the internal parameter name it
 // supports, separated by a space.
 
-// The function below specifes both external and internal parameter names for
+// The function below specifies both external and internal parameter names for
 // both of its arguments.
 
 func sayGameOver5(playersName name: String, playersScore score: Int) -> String {
@@ -97,8 +97,8 @@ print( sayGameOver5(playersName: "Debbie", playersScore: 3000) )
 
 // Omitting External Parameter Names
 
-// If you do not want to use an external name for the second or subsequent 
-// parameters of a function, write an underscore (_) instead of an explicit 
+// If you do not want to use an external name for the second or subsequent
+// parameters of a function, write an underscore (_) instead of an explicit
 // external name for that parameter.
 
 func sayGameOver6(name: String, _ score: Int) -> String {
