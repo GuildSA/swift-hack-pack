@@ -50,7 +50,9 @@ class Player {
 }
 
 
-var player1 = Player()
+var player1 = Player()    // Create our Player.
+player1.weapon = Weapon() // Give him  or her a Weapon.
+
 
 // Accessing the player's health points works as expected.
 print("The player's health is \(player1.health) points.")
