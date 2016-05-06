@@ -10,7 +10,13 @@ import UIKit
 
 //------------------------------------------------------------------------------
 
+// This is how to create an empty array that is ready to hold Strings.
+
+var emptyArray = [String]()
+
 // This creates an array to hold some weapon names for a game!
+// Since we added some values to it during the creation, Swift knows it holds
+// Strings so we don't need to specify that.
 
 var weaponsList = ["Dagger", "Sword", "Club"]
 
@@ -21,16 +27,19 @@ print(weaponsList[0])
 print(weaponsList[1])
 print(weaponsList[2])
 
+// We can also just ask for the whole array to be printed out.
+
+print(weaponsList)
+
 // Be careful though! Indexing an array position that doesn't exist can cause a crash!
 // print(weaponsList[3])
 
-// We can also the subscript syntax to assign a new value to the var being stored
+// We can also use the subscript syntax to assign a new value to the var being stored
 // there.
 
 weaponsList[2] = "Battle Mace" // Upgrade that old Club to a Battle Mace!
 
 print(weaponsList[2])
-
 
 // We can add new entries to the array by calling the append method. The append
 // method always adds to the end of the array.
@@ -46,51 +55,58 @@ weaponsList.removeAtIndex(1)
 
 print(weaponsList)
 
-// If we wanted to create an empty array, we can use the initializer syntax.
-var emptyArray = [String]()
+// You can wipe out an existing array and replace it with an empty one by
+// assigning it to [].
 
-
-// If the type information can be inferred, you can create an empty array
-// using only [].
 weaponsList = []
 
 //------------------------------------------------------------------------------
 
+// This is how to create an empty dictionary that can hold key value pairs where
+// the key is of type String and the value is of type Float.
+
+var emptyDictionary = [String : Float]()
+
 // This creates a dictionary of player names and their scores. The player's name
-// is the key which points to the score which is the value.
+// is the key of type String, which points to the score which is the value of
+// type Int.
 
 var playerScores = [
     "Calvin": 2100,
     "Jennifer": 2700,
 ]
 
-// We can use the subscript syntax to add a new key-value pairs to the dictionary
+// We can access the individual values stored in the dictionary by using the keys.
+
+print(playerScores["Calvin"])
+print(playerScores["Jennifer"])
+
+// We can also just ask for the whole dictionary to be printed out.
+
+print(playerScores)
+
+// We can use the subscript syntax to add a new key-value pairs to
+// the dictionary.
+
 playerScores["Kim"] = 3300
 
+print(playerScores)
 
-// We can an update the value of a key using the updateValue method. Note how it
-// returns the old value.
-var oldValue = playerScores.updateValue(2900, forKey: "Calvin")
-
-// You can also use subscript syntax to change the value associated with a
-// particular key.
+// We can also use subscript syntax to change the value associated with an
+// existing key.
 playerScores["Calvin"] = 3000
 
-
-// If we wanted to create an empty dictionary, we can use the initializer syntax.
-var emptyDictionary = [String: Float]()
-
-// If the type information can be inferred, you can create an empty dictionary
-// using only [:].
+// You can wipe out an existing dictionary and replace it with an empty one by
+// assigning it to [:].
 
 playerScores = [:]
 
-
 //------------------------------------------------------------------------------
 
-// A set stores distinct values of the same type in a collection with no defined
-// ordering. You can use a set instead of an array when the order of items is not
-// important, or when you need to ensure that an item only appears once.
+// A Set stores distinct values of the same type in a collection with no defined
+// ordering. You can use a Set instead of an Array when the order of items is not
+// important, or when you need to ensure that a value only appears once in the
+// collection.
 
 var letters = Set<Character>()
 
