@@ -88,7 +88,7 @@ class ShortSword : Weapon {
     }
     
     func description() {
-        print("A Sword a new adventures.")
+        print("A good beginner's Sword.")
     }
 }
 
@@ -141,8 +141,8 @@ class MagicSword : Weapon, Enchantment {
     }
     
     func renderFx() {
-        
         // Render some amazing special FXs here!
+        print("Imagine some incredible special effects here!")
     }
 }
 
