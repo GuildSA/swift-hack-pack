@@ -1,4 +1,3 @@
-
 import UIKit
 
 //------------------------------------------------------------------------------
@@ -134,3 +133,49 @@ getDataFromServer( { (data:String) -> () in
         // Ooops! We got an error code back.
         print("error = \(errorCode)")
     } )
+
+//------------------------------------------------------------------------------
+
+// Because Closure syntax can make it hard to read a function signature, you may
+// see other coders using the typealias keyword to hide the messy Closure syntax
+// behind a type alias. The function below, is the same as getDataFromServer,
+// which we just covered except this version creates two type aliases that are
+// that are used at placeholders for the Closure syntax.
+
+typealias ServerResponse = (data:String) -> ()
+typealias ServerError = (errorCode:Int) -> ()
+
+func getDataFromServer2(response: ServerResponse, error: ServerError) {
+    
+    // Pretend we go off here and fetch some data from our game server!
+    
+    let errorCode:Int = 0
+    
+    // If the errorCode is 0, we know we got the data!
+    if errorCode == 0 {
+        
+        let theData = "[25000, 12580, 12300, 10250, 9600, 5200, 5100, 4900, 4250, 3800]"
+        
+        // Once we get the data, we can use the closure pointed to by
+        // the "response" parameter to pass the data back out to the caller.
+        response(data: theData)
+        
+    } else {
+        
+        // If we get back an error code instead, we can use the closure pointed to by
+        // the "error" parameter to pass the error code back out to the caller.
+        error(errorCode: errorCode)
+    }
+}
+
+getDataFromServer2( { data in
+        // We got the data!
+        print("data = \(data)")
+    },
+   error: { errorCode in
+        // Ooops! We got an error code back.
+        print("error = \(errorCode)")
+    } )
+
+
+
