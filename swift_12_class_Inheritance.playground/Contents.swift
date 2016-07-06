@@ -85,28 +85,28 @@ class Warlock : Enemy {
     }
 }
 
-var typicalEnemy = Enemy()
+var enemy = Enemy()
 
-print(typicalEnemy.weapon)
-print(typicalEnemy.attackDamage)
-print(typicalEnemy.healthPoints)
+print(enemy.weapon)
+print(enemy.attackDamage)
+print(enemy.healthPoints)
 
-typicalEnemy.attack()
-typicalEnemy.applyDamage(10)
+enemy.attack()
+enemy.applyDamage(10)
 
 
 
-var typicalWarlock = Warlock()
+var warlock = Warlock()
 
-print(typicalWarlock.weapon)
-print(typicalWarlock.attackDamage)
-print(typicalWarlock.healthPoints)
-print(typicalWarlock.magicPoints)
+print(warlock.weapon)
+print(warlock.attackDamage)
+print(warlock.healthPoints)
+print(warlock.magicPoints)
 
-typicalWarlock.attack()
-typicalWarlock.applyDamage(10)
-typicalWarlock.castSpell()
-typicalWarlock.teleport()
+warlock.attack()
+warlock.applyDamage(10)
+warlock.castSpell()
+warlock.teleport()
 
 //------------------------------------------------------------------------------
 
