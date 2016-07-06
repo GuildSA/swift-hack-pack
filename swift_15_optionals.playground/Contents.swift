@@ -83,7 +83,7 @@ print("The player's health is \(player1.health) points.")
 // the ? allows you to use that property but only in the case where it
 // is not nil.
 
-print("The player's weapon current weapon is \(player1.weapon?.name).")
+print("The player's current weapon is \(player1.weapon?.name).")
 
 //------------------------------------------------------------------------------
 
