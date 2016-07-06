@@ -7,37 +7,58 @@ import UIKit
 // An enumeration defines a common type for a group of related values and
 // enables you to work with those values in a type-safe way within your code.
 
-enum JoystickDirection {
+enum GamePadDirection {
     case Up
     case Down
     case Left
     case Right
 }
 
-var joystickInput = JoystickDirection.Up
+var gamePadInput = GamePadDirection.Up
 
-print("Joystick is being pushed: \(joystickInput).")
+print("Game pad is being pushed: \(gamePadInput).")
+
+
+// Now, if you're wondering why enumerations are useful, consider the typical
+// alternative. Instead of using an enumeration to represent the possible
+// Game pad Directions we could've defined a bunch of simple constants values,
+// but if we do this, we lose the type safety that enumerations enforce!
+/*
+ let GamePadUp = 1
+ let GamePadDown = 2
+ let GamePadLeft = 3
+ let GamePadRight = 4
+ 
+ // This works and looks reasonable... so far so good!
+ var gamePadDirection = GamePadUp
+ 
+ // But without type safety, we can also do this which makes no sense!
+ gamePadDirection = 55
+ 
+ // What does the value 55 mean? Swift will not mark this an error because 55
+ // is just as valid a value as 1,2,3, or 4 which are used by the constants.
+*/
 
 //------------------------------------------------------------------------------
 
 // A switch statement is a great way to process the value of a variable that is
 // an enumeration type.
 
-joystickInput = JoystickDirection.Down
+gamePadInput = GamePadDirection.Down
 
-switch joystickInput {
+switch gamePadInput {
     
 case .Up:
-    print("The joystick is being pushed up!")
+    print("The Game pad is being pushed up!")
     
 case .Down:
-    print("The joystick is being pushed down!")
+    print("The Game pad is being pushed down!")
     
 case .Left:
-    print("The joystick is being pushed left!")
+    print("The Game pad is being pushed left!")
     
 case .Right:
-    print("The joystick is being pushed right!")
+    print("The Game pad is being pushed right!")
 }
 
 //------------------------------------------------------------------------------
@@ -47,27 +68,30 @@ case .Right:
 // Enumeration cases can have actual values (called raw values), assigned to them
 // as long as they are all of the same type.
 
-enum Letters: Character {
-    case A = "A"
-    case B = "B"
-    case C = "C"
+enum Team: String {
+    case A = "Alpha"
+    case B = "Bravo"
+    case C = "Charlie"
 }
 
+var team1 = Team.A
+
+print(team1)
 
 // If we assign Raw Values to the enumeration's, the enumeration automatically
 // receives an initializer that can be used to create a new enumeration
 // variable by passing in one of the Raw Values.
 
-var possibleLetter = Letters(rawValue: "A")
+var team2 = Team(rawValue: "Bravo")
 
-print(possibleLetter)
+print(team2)
 
 
 // If the raw value that was passed in can not be turned into an enumeration
 // the initializer will return nil.
-possibleLetter = Letters(rawValue: "X")
+var team3 = Team(rawValue: "X-Ray")
 
-print(possibleLetter)
+print(team3)
 
 
 //------------------------------------------------------------------------------
@@ -104,7 +128,7 @@ print(error.rawValue)
 // Associated Values
 
 // You can define Swift enumerations that are capable of storing associated
-// values which allows the enumeration types to be customized during assignment.
+// values which allow the enumeration types to be customized during assignment.
 
 enum WeaponTypes {
     
@@ -126,17 +150,17 @@ playerWeapon = .Rock(1)
 
 switch playerWeapon {
     
-    case .Sword(let name, let damage):
-        print("The player is attacking with a \(name) for \(damage) points of damage.")
-        
-    case .Bow(let name, let damage):
-        print("The player is attacking with a \(name) for \(damage) points of damage.")
-        
-    case .WoodenClub(let damage):
-        print("The player is attacking with a WoodenClub for \(damage) points of damage.")
-        
-    case .Rock(let damage):
-        print("The player is attacking with a rock for \(damage) points of damage.")
+case .Sword(let name, let damage):
+    print("The player is attacking with a \(name) for \(damage) points of damage.")
+    
+case .Bow(let name, let damage):
+    print("The player is attacking with a \(name) for \(damage) points of damage.")
+    
+case .WoodenClub(let damage):
+    print("The player is attacking with a WoodenClub for \(damage) points of damage.")
+    
+case .Rock(let damage):
+    print("The player is attacking with a rock for \(damage) points of damage.")
 }
 
 //------------------------------------------------------------------------------

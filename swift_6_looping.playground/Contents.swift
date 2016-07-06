@@ -9,13 +9,13 @@ import UIKit
 // This example uses a range of numbers to print out a test message 4 times.
 
 for index in 0...3 {
-    print("Current index is: \(index)")
+    print("Current index in range is: \(index)")
 }
 
 // This for-in loop also uses a range of numbers to print out a test message,
 // but calls reverse on it to print the index values in reverse order.
 for index in (0...3).reverse() {
-    print("Current index is: \(index)")
+    print("Current index reversed range is: \(index)")
 }
 
 //------------------------------------------------------------------------------
@@ -81,19 +81,20 @@ while rocketCount < numRocketsToFire {
 // We can use the 'break' keyword to break out of a while loop early if we find
 // a reason to.
 
-var number = 0
+var answer = 0
 
-while number < 10 {
+while answer < 100 {
     
-    print( "while-break test \(number) " )
+    print("Testing answer of \(answer)")
     
-    if number == 5 {
+    if answer == 42 {
         
         // If the number is 5 - stop looping and jump out of the loop's body!
+        print("We just found it... The Answer to the Ultimate Question of Life, the Universe, and Everything!")
         break
     }
     
-    number += 1
+    answer += 1
 }
 
 //------------------------------------------------------------------------------
@@ -101,11 +102,13 @@ while number < 10 {
 // The 'continue' keyword allows us to skip the rest of the loop's body and jump
 // to the loop's top.
 
-var answer = 0
+answer = 0
 
-while answer < 100 {
+while answer < 50 {
     
     answer += 1
+    
+    print("Testing answer of \(answer)")
     
     if answer != 42 {
         
@@ -115,6 +118,7 @@ while answer < 100 {
     }
     
     print("We just found it... The Answer to the Ultimate Question of Life, the Universe, and Everything!")
+    break
 }
 
 //------------------------------------------------------------------------------
@@ -126,15 +130,15 @@ while answer < 100 {
 // loop's condition. It then continues to repeat the loop until the condition
 // is false.
 
-number = 0
+var number = 0
 
 repeat {
     
-    print( "repeat-while test \(number)" )
+    print( "Repeating \(number)" )
     
     number += 1
     
-} while number < 5
+} while number < 3
 
 
 
