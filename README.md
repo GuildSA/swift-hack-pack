@@ -1,5 +1,5 @@
 # SwiftHackPack
-The SwiftHackPack is a collection of Swift Playground files that teach Apple's new Swift programming language. It's based on Swift 2.1 and Xcode 7.3.
+The SwiftHackPack is a collection of Swift Playground files that teach Apple's new Swift programming language. It's based on Swift 2.2 and Xcode 7.3.1
 
 It was designed as the lecture material for a Meetup of the North Texas Mobile App Apprentices:
 
