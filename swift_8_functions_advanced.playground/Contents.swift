@@ -30,7 +30,7 @@ typealias HighScore = (name: String, score: Int)
 
 func getTheHighScore2() -> HighScore {
     
-    // Pretned that we went out to our game server and brought back this data!
+    // Pretend that we went out to our game server and brought back this data!
     let theName = "Jennifer"
     let theScore = 89500
     
@@ -70,7 +70,7 @@ addAllNumbers(1, 2, 3, 4, 5)
 // For example, the following function will not compile under Swift because it
 // is attempting to change the parameter called someNumber.
 
-//func doSomething(someNumber: Int) {
+//func doSomethingNaughty(someNumber: Int) {
 //    someNumber = 42 // Forbidden!
 //}
 
@@ -117,42 +117,3 @@ let result = processNumbers(1, 2)
 
 print(result)
 
-//------------------------------------------------------------------------------
-
-// It's also possible to declare functions inside of another function
-// and then return it so it can be used externally.
-
-func getCustomFunction(functionId: Int) -> (Int, Int) -> Int {
-    
-    func add(a: Int, b: Int) -> Int {
-        return a + b
-    }
-    
-    func subtract(a: Int, b: Int) -> Int {
-        return a - b
-    }
-    
-    func multiply(a: Int, b: Int) -> Int {
-        return a * b
-    }
-    
-    func divide(a: Int, b: Int) -> Int {
-        return a / b
-    }
-    
-    if functionId == 0 {
-        return add
-    } else if functionId == 1 {
-        return subtract
-    } else if functionId == 2 {
-        return multiply
-    } else {
-        return divide
-    }
-}
-
-let computeFunction = getCustomFunction(0)
-
-var answer = computeFunction(1, 2)
-
-print(answer)
