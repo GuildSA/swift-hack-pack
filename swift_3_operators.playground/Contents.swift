@@ -47,35 +47,6 @@ print("Hello, " + "world!")  // Equals the single String, "Hello, world".
 
 //------------------------------------------------------------------------------
 
-
-// Increment and Decrement Operators
-
-// Like C, Swift provides an increment operator (++) and a decrement operator (--)
-// as a shortcut to increase or decrease the value of a numeric variable by 1.
-// You can use these operators with variables of any integer or floating-point type.
-
-var i = 0
-++i // i now equals 1. Essentially, ++i is shorthand for saying i = i + 1.
---i // And --i is shorthand for saying i = i - 1.
-
-// We can also place the increment and decrement operators after the var.
-var j = 0
-j++
-j--
-
-// When the operator is before the var, we call it the prefix version of the
-// operator, and when it's after the var, it is the postfix version of the
-// operator. Which one you choose to use doesn't matter unless the increment or
-// decrement operator is being used as part of a larger assignment.
-
-var a = 10
-var b = 10
-
-var x = ++a   // Increments the value of 'a' BEFORE assigning it to 'x'.
-var y = b++   // Increments the value of 'b' AFTER assigning it to 'y'.
-
-//------------------------------------------------------------------------------
-
 // Comparison Operators
 
 // Swift supports all standard C comparison operators:
@@ -102,17 +73,17 @@ var y = b++   // Increments the value of 'b' AFTER assigning it to 'y'.
 // takes the form of question ? answer1 : answer2.
 
 var speed = 100
-var hasTurbo = true
+var turboButtonPressed = true
 
-speed = (hasTurbo ? speed*2 : speed)
+speed = (turboButtonPressed ? speed*2 : speed)
 
 // With out a Ternary Conditional Operator, we would have to write a bit more
 // code to get the same result.
 
 speed = 100
-hasTurbo = true
+turboButtonPressed = true
 
-if hasTurbo {
+if turboButtonPressed {
     speed = speed * 2
 }
 
