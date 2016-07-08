@@ -64,6 +64,15 @@ for _ in 1...3 {
 
 //------------------------------------------------------------------------------
 
+// We can use the stride method to create a sequence of numbers that can 
+// increment a for loop by some value other than 1.
+
+for index in 0.stride(to: 10, by: 2) {
+    print("Stride index: \(index)")
+}
+
+//------------------------------------------------------------------------------
+
 // The while loop continues looping while the expression is true.
 
 let numRocketsToFire = 3
