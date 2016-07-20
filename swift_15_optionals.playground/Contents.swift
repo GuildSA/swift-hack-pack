@@ -44,14 +44,14 @@ class Weapon {
 
 class Player {
     
-    var health:Int = 100 // The Player always has some health value.
+    var health: Int = 100 // The Player always has some health value.
     
     var weapon: Weapon? = nil // But, the player might not have a Weapon!
 }
 
 
 var player1 = Player()    // Create our Player.
-player1.weapon = Weapon() // Give him  or her a Weapon.
+player1.weapon = Weapon() // Give him or her a Weapon.
 
 
 // Accessing the player's health points works as expected.
@@ -78,7 +78,7 @@ print("The player's health is \(player1.health) points.")
 // If we're not sure if the player will have a weapon or not, but we want
 // try to access it without triggering a crash, we can use '?' instead
 // of a '!'. The '?' behind the property name tells the compiler, "I don’t
-// know whether this property contains nil or a value, so: if it has value
+// know whether this property contains nil or a value, so: if it has a value
 // use it, otherwise just consider the whole expression nil". Effectively
 // the ? allows you to use that property but only in the case where it
 // is not nil.
