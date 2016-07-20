@@ -100,7 +100,7 @@ combineTextClosure("Hello, ", "Closure!")
 // server, and the second closure called "error" will be called if the function
 // is unable to get any data from the server.
 
-func getDataFromServer(response: (data:String) -> (), error: (errorCode:Int) -> ()) {
+func getDataFromServer(response: (data:String) -> (), error: (errorCode:Int, errorMessage:String) -> ()) {
     
     // Pretend we go off here and fetch some data from our game server!
     
@@ -117,9 +117,10 @@ func getDataFromServer(response: (data:String) -> (), error: (errorCode:Int) -> 
         
     } else {
         
-        // If we get back an error code instead, we can use the closure pointed to by
-        // the "error" parameter to pass the error code back out to the caller.
-        error(errorCode: errorCode)
+        // If we get back an error code instead, we can use the closure 
+        // pointed to by the "error" parameter to pass the error code and 
+        // message back out to the caller.
+        error(errorCode: errorCode, errorMessage: "Something very bad happened!")
     }
 }
 
@@ -129,21 +130,35 @@ getDataFromServer( { (data:String) -> () in
         // We got the data!
         print("data = \(data)")
     },
-    error: { (errorCode:Int) -> () in
+    error: { (errorCode:Int, errorMessage:String) -> () in
         // Ooops! We got an error code back.
-        print("error = \(errorCode)")
+        print("error code = \(errorCode)")
+        print("error message = \(errorMessage)")
+    } )
+
+// This is another way to call the same closure but we've dropped the type 
+// information.
+
+getDataFromServer( { data in
+        // We got the data!
+        print("data = \(data)")
+    },
+    error: { errorCode, errorMessage in
+        // Ooops! We got an error code back.
+        print("error code = \(errorCode)")
+        print("error message = \(errorMessage)")
     } )
 
 //------------------------------------------------------------------------------
 
 // Because Closure syntax can make it hard to read a function signature, you may
 // see other coders using the typealias keyword to hide the messy Closure syntax
-// behind a type alias. The function below, is the same as getDataFromServer,
-// which we just covered except this version creates two type aliases that are
-// that are used at placeholders for the Closure syntax.
+// behind a type alias. The function below, is the same as the getDataFromServer
+// function, which we just covered except this version creates two type aliases 
+// that are that are used at placeholders for the Closure syntax.
 
 typealias ServerResponse = (data:String) -> ()
-typealias ServerError = (errorCode:Int) -> ()
+typealias ServerError = (errorCode:Int, errorMessage:String) -> ()
 
 func getDataFromServer2(response: ServerResponse, error: ServerError) {
     
@@ -162,9 +177,10 @@ func getDataFromServer2(response: ServerResponse, error: ServerError) {
         
     } else {
         
-        // If we get back an error code instead, we can use the closure pointed to by
-        // the "error" parameter to pass the error code back out to the caller.
-        error(errorCode: errorCode)
+        // If we get back an error code instead, we can use the closure
+        // pointed to by the "error" parameter to pass the error code and
+        // message back out to the caller.
+        error(errorCode: errorCode, errorMessage: "Something very bad happened!")
     }
 }
 
@@ -172,9 +188,10 @@ getDataFromServer2( { data in
         // We got the data!
         print("data = \(data)")
     },
-   error: { errorCode in
+    error: { errorCode, errorMessage in
         // Ooops! We got an error code back.
-        print("error = \(errorCode)")
+        print("error code = \(errorCode)")
+        print("error message = \(errorMessage)")
     } )
 
 
