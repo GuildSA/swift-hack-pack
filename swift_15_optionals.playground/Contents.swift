@@ -98,7 +98,7 @@ print("The player's current weapon is \(player1.weapon?.name).")
 // assigned to a constant which allows us to access it repeatably.
 
 if let weapon = player1.weapon {
-    print("The player's weapon current weapon is \(weapon.name).")
+    print("The player's current weapon is \(weapon.name).")
 } else {
     print("The player is unarmed!")
 }

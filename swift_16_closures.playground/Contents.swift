@@ -43,7 +43,7 @@ func combineTextFunc(text1:String, text2:String) -> String {
     return text1 + text2
 }
 
-combineTextFunc("Hello, ", text2:"Function!")
+print( combineTextFunc("Hello, ", text2:"Function!") )
 
 
 // Again, we'll create a variable that points to a closure which is capable of
@@ -84,7 +84,7 @@ combineTextClosure = {
 //    $0 + $1
 //}
 
-combineTextClosure("Hello, ", "Closure!")
+print( combineTextClosure("Hello, ", "Closure!") )
 
 //------------------------------------------------------------------------------
 
