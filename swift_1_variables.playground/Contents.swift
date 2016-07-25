@@ -16,7 +16,7 @@ var myScore = 0
 // just like a variable but it can never be changed once it has been
 // assigned a value.
 
-let maximumNumberOfGameContinues = 3
+let maxGoldCoins = 500
 
 // You can declare multiple constants or multiple variables on a single line
 // if you separate them by commas:
