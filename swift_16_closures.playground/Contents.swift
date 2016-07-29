@@ -1,4 +1,5 @@
 import UIKit
+import XCPlayground // Needed to support asynchronous code in this sample.
 
 //------------------------------------------------------------------------------
 
@@ -91,11 +92,39 @@ print( combineTextClosure("Hello, ", "Closure!") )
 // But what are closures good for? Most often in iOS development, you'll run
 // into a closure as being the type required by a parameter of a function.
 // In this common case, the closure is being used as a callback which the
-// function can use to "call back" to programmer. When the function calls back
+// function can use to "call back" to the programmer. When the function calls back
 // with the closure, the programmer will have a chance to execute some code
 // depending on what happened in the function.
 
-// Here's a function that takes two closures. The first one called "response"
+
+func someFunction(completion: (data:String) -> ()) {
+    
+    // We'll use a call to  go off here and fetch some data from our game server!
+
+    let delayTime = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 3 * Int64(NSEC_PER_SEC))
+    dispatch_after(delayTime, dispatch_get_main_queue()) {
+        
+        // Put your code which should be executed with a delay here
+        
+        completion(data: "Work is done! Here's some data!")
+    }
+}
+
+
+print("Before Call to someFunction")
+
+var someClosure: (String) -> () = { data in
+    
+    print(data)
+}
+
+someFunction( someClosure )
+
+print("After Call to someFunction")
+
+//------------------------------------------------------------------------------
+
+// Here's a more compliated function that takes two closures. The first one called "response"
 // will be called if the function was successful in getting some data from the
 // server, and the second closure called "error" will be called if the function
 // is unable to get any data from the server.
@@ -195,4 +224,8 @@ getDataFromServer2( { data in
     } )
 
 
+// Since this sample makes use of some asynchronous code, we will need to tell 
+// them playground to continue spinning the main run loop, so the asynchronous
+// code has a chance to run till completion.
 
+XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
