@@ -5,18 +5,19 @@ import XCPlayground // Needed to support asynchronous code in this sample.
 
 // Closures
 //
-// Closures are self-contained blocks of functionality that can be passed
-// around and used in your code. Closures in Swift are similar to lambda
-// functions in other programming languages.
+// Just like functions, closures are self-contained blocks of code, but they 
+// can be assigned to variables and passed into functions. Closures in Swift 
+// are similar to lambda functions in other programming languages or blocks 
+// in Objective-C.
 
 
-// A function is basically a closure that is named.
-func sayHello() {
-    print("Hello from function!")
+// A function is basically just a closure that is named.
+func sayHelloFunc() {
+    print("Function says, Hello!")
 }
 
 // Here we use the function.
-sayHello()
+sayHelloFunc()
 
 
 // Below is a variable that points to a closure. It looks a little weird but
@@ -28,23 +29,24 @@ sayHello()
 // and returns no values.
 
 var sayHelloClosure: () -> () = {
-    print("Hello from closure!")
+    print("Closure says, Hello!")
 }
 
-// Now, even though sayHelloClosure is a variable, it does point to a
-// block of code that can be called just like a function.
+// Now, even though sayHelloClosure is a variable, it does point to a closure 
+// which is a block of code and therefore can be called just like a function.
+
 sayHelloClosure()
 
 //------------------------------------------------------------------------------
 
 // Here's another function that has two parameters and a return type:
 
-func combineTextFunc(text1:String, text2:String) -> String {
+func combineTextFunc(text1: String, text2: String) -> String {
     
     return text1 + text2
 }
 
-print( combineTextFunc("Hello, ", text2:"Function!") )
+print(combineTextFunc("Text combined by a ", text2:"function!"))
 
 
 // Again, we'll create a variable that points to a closure which is capable of
@@ -54,177 +56,97 @@ print( combineTextFunc("Hello, ", text2:"Function!") )
 // (String, String) -> String
 //
 // Which means the variable's type is a closure that takes two arguments
-// which are Strings and returns a String.
+// of type String and returns a String.
 
 
 var combineTextClosure: (String, String) -> String
 
-// Later, we can assign a closure to it. but the syntax will look a bit
-// different than we saw above.
-combineTextClosure = {
-    
-    text1, text2 -> String in
-    
+
+// Later, we can initialize the 'combineTextClosure' var by assigning a
+// closure to it, but the syntax will look a bit different than we saw
+// above because we now must deal with parameters.
+
+combineTextClosure = { (text1: String, text2: String) -> String in
+
     return text1 + text2
 }
 
-// Actually, we could also write it like this... with the return type
-// inferred.
+// We could also initialize it like this where the () are dropped, the
+// parameter types are infered, and a call to return is just assumed
+// upon reaching the last line.
 
-//combineTextClosure = {
-//
-//    text1, text2 -> String in
-//
+//combineTextClosure = { text1, text2 -> String in
+//    
 //    text1 + text2
 //}
 
-// Or even like this... where all type are inferred and Swift allows
-// us to talk about the arguments using place-holder substitutions.
+// We can even initialize it like this... where all type are inferred and 
+// Swift allows us to talk about the arguments using place-holder substitutions.
 
 //combineTextClosure = {
 //    $0 + $1
 //}
 
-print( combineTextClosure("Hello, ", "Closure!") )
+// Finally, test our closure here!
+print(combineTextClosure("Text combined by a ", "closure!"))
 
 //------------------------------------------------------------------------------
 
-// But what are closures good for? Most often in iOS development, you'll run
-// into a closure as being the type required by a parameter of a function.
-// In this common case, the closure is being used as a callback which the
-// function can use to "call back" to the programmer. When the function calls back
-// with the closure, the programmer will have a chance to execute some code
-// depending on what happened in the function.
+// Ok, so closures are basically blocks of code that we can pass around like
+// variables, but what are closures good for?
 
+// Most often in iOS development, you'll run into a closure as being the type
+// required by a parameter of a function. In this common case, the closure is
+// being used as a callback which the function can use to "call back" to the
+// programmer. When the function calls back with the closure, the programmer
+// will have a chance to execute some code depending on what happened in the
+// function.
 
-func someFunction(completion: (data:String) -> ()) {
+// The function below will take a closure and delay the execution of it for
+// the number of seconds specified. The parameter name for the closure is
+// 'workClosure' and it takes a single string as an argument and returns
+// nothing: (String) -> ()
+
+func doSomeDelayedWork(workClosure: (String) -> (), timeToDelay: Int64) {
     
-    // We'll use a call to  go off here and fetch some data from our game server!
-
-    let delayTime = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 3 * Int64(NSEC_PER_SEC))
+    // We'll use a call to dispatch_after() to delay the execution of some code to
+    // 3 seconds in the future.
+    
+    let delayTime = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), timeToDelay * Int64(NSEC_PER_SEC))
+    
     dispatch_after(delayTime, dispatch_get_main_queue()) {
         
-        // Put your code which should be executed with a delay here
+        // Put the code which should be executed with a delay here:
         
-        completion(data: "Work is done! Here's some data!")
+        // Since the parameter 'workClosure' is a closure, we can execute
+        // it's code by calling the closure like a function.
+        workClosure("Calling closure delayed for \(timeToDelay) seconds!")
     }
 }
 
+// Next, we'll create a closure that matches the closure type specified by the
+// function above called 'doSomeDelayedWork'
 
-print("Before Call to someFunction")
-
-var someClosure: (String) -> () = { data in
+var myWorkToDelay: (String) -> () = { message in
     
-    print(data)
+    print(message)
 }
 
-someFunction( someClosure )
+print("Before Calls to doSomeDelayedWork")
 
-print("After Call to someFunction")
-
-//------------------------------------------------------------------------------
-
-// Here's a more compliated function that takes two closures. The first one called "response"
-// will be called if the function was successful in getting some data from the
-// server, and the second closure called "error" will be called if the function
-// is unable to get any data from the server.
-
-func getDataFromServer(response: (data:String) -> (), error: (errorCode:Int, errorMessage:String) -> ()) {
-    
-    // Pretend we go off here and fetch some data from our game server!
-    
-    let errorCode:Int = 0
-    
-    // If the errorCode is 0, we know we got the data!
-    if errorCode == 0 {
-        
-        let theData = "[25000, 12580, 12300, 10250, 9600, 5200, 5100, 4900, 4250, 3800]"
-        
-        // Once we get the data, we can use the closure pointed to by
-        // the "response" parameter to pass the data back out to the caller.
-        response(data: theData)
-        
-    } else {
-        
-        // If we get back an error code instead, we can use the closure 
-        // pointed to by the "error" parameter to pass the error code and 
-        // message back out to the caller.
-        error(errorCode: errorCode, errorMessage: "Something very bad happened!")
-    }
-}
-
-// Now, here's how we can call our function that takes two closures.
-
-getDataFromServer( { (data:String) -> () in
-        // We got the data!
-        print("data = \(data)")
-    },
-    error: { (errorCode:Int, errorMessage:String) -> () in
-        // Ooops! We got an error code back.
-        print("error code = \(errorCode)")
-        print("error message = \(errorMessage)")
-    } )
-
-// This is another way to call the same closure but we've dropped the type 
-// information.
-
-getDataFromServer( { data in
-        // We got the data!
-        print("data = \(data)")
-    },
-    error: { errorCode, errorMessage in
-        // Ooops! We got an error code back.
-        print("error code = \(errorCode)")
-        print("error message = \(errorMessage)")
-    } )
-
-//------------------------------------------------------------------------------
-
-// Because Closure syntax can make it hard to read a function signature, you may
-// see other coders using the typealias keyword to hide the messy Closure syntax
-// behind a type alias. The function below, is the same as the getDataFromServer
-// function, which we just covered except this version creates two type aliases 
-// that are that are used at placeholders for the Closure syntax.
-
-typealias ServerResponse = (data:String) -> ()
-typealias ServerError = (errorCode:Int, errorMessage:String) -> ()
-
-func getDataFromServer2(response: ServerResponse, error: ServerError) {
-    
-    // Pretend we go off here and fetch some data from our game server!
-    
-    let errorCode:Int = 0
-    
-    // If the errorCode is 0, we know we got the data!
-    if errorCode == 0 {
-        
-        let theData = "[25000, 12580, 12300, 10250, 9600, 5200, 5100, 4900, 4250, 3800]"
-        
-        // Once we get the data, we can use the closure pointed to by
-        // the "response" parameter to pass the data back out to the caller.
-        response(data: theData)
-        
-    } else {
-        
-        // If we get back an error code instead, we can use the closure
-        // pointed to by the "error" parameter to pass the error code and
-        // message back out to the caller.
-        error(errorCode: errorCode, errorMessage: "Something very bad happened!")
-    }
-}
-
-getDataFromServer2( { data in
-        // We got the data!
-        print("data = \(data)")
-    },
-    error: { errorCode, errorMessage in
-        // Ooops! We got an error code back.
-        print("error code = \(errorCode)")
-        print("error message = \(errorMessage)")
-    } )
+doSomeDelayedWork( myWorkToDelay, timeToDelay: 3 )
 
 
-// Since this sample makes use of some asynchronous code, we will need to tell 
+// Of course, it is more typical to see the closure passed directly into the
+// function call instead being assigned to a var first.
+doSomeDelayedWork( { message in
+    print(message)
+    }, timeToDelay: 6 )
+
+print("After Calls to doSomeDelayedWork")
+
+
+// Since this sample makes use of some asynchronous code, we will need to tell
 // them playground to continue spinning the main run loop, so the asynchronous
 // code has a chance to run till completion.
 
