@@ -87,8 +87,7 @@ print("The player's current weapon is \(player1.weapon?.name).")
 
 //------------------------------------------------------------------------------
 
-// Unwrapping Optionals with the "if let" expression
-
+// Optional Binding - Unwrapping Optionals with the "if let" expression
 
 // Ok, so we can use '!' or '?' to unwrap a property for access, but this only
 // works for one access on one line of code. What if we wanted to safely access
@@ -101,5 +100,19 @@ if let weapon = player1.weapon {
     print("The player's current weapon is \(weapon.name).")
 } else {
     print("The player is unarmed!")
+}
+
+//------------------------------------------------------------------------------
+
+// Old-Fashioned, Explicit check for nil.
+
+// This is not typically done anymore, but is a valid possibility that you may 
+// see in older code.
+
+if player1.weapon != nil {
+    
+    let unwrappedWeapon = player1.weapon!
+    
+    print("The player's current weapon is \(unwrappedWeapon.name).")
 }
 
