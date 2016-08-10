@@ -75,7 +75,7 @@ print("Hello, " + "world!")  // Equals the single String, "Hello, world".
 var speed = 100
 var turboButtonPressed = true
 
-speed = (turboButtonPressed ? speed*2 : speed)
+speed = (turboButtonPressed ? speed * 2 : speed)
 
 // With out a Ternary Conditional Operator, we would have to write a bit more
 // code to get the same result.
