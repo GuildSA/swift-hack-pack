@@ -8,7 +8,7 @@ import UIKit
 // To make things easy on us, Swift uses Type Inference to figure out or
 // 'infer' what type a variable or constant is meant to be.
 
-// This is obviously a String since we assigned it some characters.
+// This is obviously a String since we assigned it a string of characters.
 let gameTitle = "Angry Birds"
 
 // And this is an Int since we assigned it a whole number with no fractional part.
@@ -66,5 +66,31 @@ playerFoundMagicKey = true
 var aSingleLetter: Character
 
 aSingleLetter = "A"
+
+//------------------------------------------------------------------------------
+
+// There are other specialty types such Int64 and Uint, but these are typically
+// only used in cases where a function or method requires their use.
+
+// Here's a listing of some of these specialty types:
+
+// Int16  - A 16-bit signed integer value type.
+// Int32  - A 32-bit signed integer value type.
+// Int64  - A 64-bit signed integer value type.
+// Int8   - An 8-bit signed integer value type.
+// UInt   - A 64-bit unsigned integer value type.
+// UInt16 - A 16-bit unsigned integer value type.
+// UInt32 - A 32-bit unsigned integer value type.
+// UInt64 - A 64-bit unsigned integer value type.
+// UInt8  - An 8-bit unsigned integer value type.
+// UTF16  - A codec for UTF-16.
+// UTF32  - A codec for UTF-32.
+// UTF8   - A codec for UTF-8.
+
+// You can see this and others listed under the docs for the The Swift Standard Library:
+
+// https://developer.apple.com/library/tvos/documentation/General/Reference/SwiftStandardLibraryReference/index.html
+
+
 
 
