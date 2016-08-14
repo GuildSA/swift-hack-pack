@@ -67,6 +67,8 @@ print("Hello, " + "world!")  // Equals the single String, "Hello, world".
 
 //------------------------------------------------------------------------------
 
+// The Remainder Operator
+
 // The remainder operator (a % b) works out how many multiples of b will fit
 // inside a and returns the value that is left over (known as the remainder).
 
