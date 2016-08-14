@@ -4,7 +4,7 @@ import UIKit
 
 // Arithmetic Operators
 
-// We've seen the assignment operator (=) in action:
+// We've already seen the assignment operator (=) in action:
 
 var myVar = 42
 
@@ -64,6 +64,34 @@ print("Hello, " + "world!")  // Equals the single String, "Hello, world".
 1 < 2    // true, because 1 is less than 2
 1 >= 1   // true, because 1 is greater than or equal to 1
 2 <= 1   // false, because 2 is not less than or equal to 1
+
+//------------------------------------------------------------------------------
+
+// The remainder operator (a % b) works out how many multiples of b will fit
+// inside a and returns the value that is left over (known as the remainder).
+
+// For example, if we divide 9 by 4 we get 2 since at least two 4's can fit into 9
+// but what about the remainder?
+var quotient = 9 / 4
+
+print("How many 4's can fit into 9: \(quotient)")
+
+// If we want to know just about the remainder we can use the '%' or the remainder
+// operator to find out what the remainder is after the 9 is divided by 4.
+var remainder = 9 % 4
+
+print("The remainder of dividing 9 by 4 is: \(remainder)")
+
+// While the remainder operator is not used very often in day-to-day coding, it
+// often pops in interview questions where you will be asked to identify numbers
+// that are the "multiples of some other number", or "divisible by some other number".
+
+// For example, if you're asked to identity all the numbers that are "multiples of three"
+// then you could use the remainder operator to find the like so:
+
+15 % 3 == 0 // Is 15 a multiple of 3?
+
+10 % 3 == 0 // Is 10 a multiple of 3?
 
 //------------------------------------------------------------------------------
 
