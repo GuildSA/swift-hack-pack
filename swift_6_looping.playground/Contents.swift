@@ -98,7 +98,7 @@ while answer < 100 {
     
     if answer == 42 {
         
-        // If the number is 5 - stop looping and jump out of the loop's body!
+        // If the number is 42 - stop looping and jump out of the loop's body!
         print("We just found it... The Answer to the Ultimate Question of Life, the Universe, and Everything!")
         break
     }
