@@ -45,6 +45,51 @@ if health <= 0  {
     print( "You're alive!" )
 }
 
+//------------------------------------------------------------------------------
+
+// If we want to write if-statements that check multiple expressions we can
+// use Logical Operators to decided if an if-statement should be executed
+// or not.
+
+// Swift Logical Operators
+
+// && - Returns true if both expressions are true
+// || - Returns true if either of the two expressions are true
+// !  - Negates or inverts the expression's result.
+
+let goldCoins = 800
+let rubies = 5
+
+let priceUsingGold = 500
+let priceUsingRubies = 10
+
+var hasSword = true // Does the shop keeper have one to sell?
+
+// If the player has enough gold coins AND the shop keeper has a magic sword
+// to sell - ask the player if he would like to purchase it.
+
+if goldCoins >= priceUsingGold && hasSword == true {
+    print("Would you like to purchase a magic sword?")
+} else {
+    print("I'm sorry. The magic sword is unavailable.")
+}
+
+// If the player has enough gold coins OR the player has enough ruby gems -
+// ask the player if he would like to purchase it.
+if goldCoins >= priceUsingGold || rubies >= priceUsingRubies {
+    print("Would you like to purchase a magic sword?")
+} else {
+    print("I'm sorry. The magic sword is unavailable.")
+}
+
+// The 'not' Logical Operator just inverts or negates a Boolean variable or the
+// result of an expression.
+
+hasSword = false
+
+if !hasSword {
+    print("The shop keeper has no magic sword!")
+}
 
 //------------------------------------------------------------------------------
 
