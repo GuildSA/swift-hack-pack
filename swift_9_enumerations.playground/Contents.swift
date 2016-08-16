@@ -66,7 +66,7 @@ case .Right:
 // Raw Values
 
 // Enumeration cases can have actual values (called raw values), assigned to them
-// as long as they are all of the same type.
+// as long as they are all of the same type and all unique.
 
 enum Team: String {
     case A = "Alpha"
@@ -150,17 +150,17 @@ playerWeapon = .Rock(1)
 
 switch playerWeapon {
     
-case .Sword(let name, let damage):
-    print("The player is attacking with a \(name) for \(damage) points of damage.")
-    
-case .Bow(let name, let damage):
-    print("The player is attacking with a \(name) for \(damage) points of damage.")
-    
-case .WoodenClub(let damage):
-    print("The player is attacking with a WoodenClub for \(damage) points of damage.")
-    
-case .Rock(let damage):
-    print("The player is attacking with a rock for \(damage) points of damage.")
+    case .Sword(let name, let damage):
+        print("The player is attacking with a \(name) for \(damage) points of damage.")
+        
+    case .Bow(let name, let damage):
+        print("The player is attacking with a \(name) for \(damage) points of damage.")
+        
+    case .WoodenClub(let damage):
+        print("The player is attacking with a WoodenClub for \(damage) points of damage.")
+        
+    case .Rock(let damage):
+        print("The player is attacking with a rock for \(damage) points of damage.")
 }
 
 //------------------------------------------------------------------------------
