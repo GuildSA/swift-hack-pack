@@ -68,7 +68,7 @@ func swapTwoInts(inout a: Int, inout _ b: Int) {
 var var1 = 42
 var var2 = 1000
 
-print("var1 = \(var1), and = \(var2)") // Before Swap
+print("var1 = \(var1), var2 = \(var2)") // Before Swap
 
 // To pass an argument that can be changed inside the function, we must put
 // an '&' charcater in front of it.
