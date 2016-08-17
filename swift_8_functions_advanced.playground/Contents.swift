@@ -44,26 +44,6 @@ print("The high score is \(highScoreData2.score) held by \(highScoreData2.name)"
 
 //------------------------------------------------------------------------------
 
-// Variadic Parameters
-
-// A variadic parameter allow us to pass zero or more values of a specified
-// type, and then get access to them.
-
-func addAllNumbers(numbers: Int...) -> Int {
-    
-    var total: Int = 0
-    
-    for number in numbers {
-        total += number
-    }
-    
-    return total
-}
-
-addAllNumbers(1, 2, 3, 4, 5)
-
-//------------------------------------------------------------------------------
-
 // In-Out Parameters
 
 // By default, parameters are constants and their values can not be changed.
@@ -97,6 +77,26 @@ swapTwoInts( &var1, &var2 )
 
 print("var1 = \(var1), var2 = \(var2)") // After Swap
 
+
+//------------------------------------------------------------------------------
+
+// Variadic Parameters
+
+// A variadic parameter allow us to pass zero or more values of a specified
+// type, and then get access to them.
+
+func addAllNumbers(numbers: Int...) -> Int {
+    
+    var total: Int = 0
+    
+    for number in numbers {
+        total += number
+    }
+    
+    return total
+}
+
+addAllNumbers(1, 2, 3, 4, 5)
 
 //------------------------------------------------------------------------------
 

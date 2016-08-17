@@ -1,6 +1,28 @@
 
 import UIKit
 
+//------------------------------------------------------------------------------
+
+// Now that we've covered all the basics of working with variables and
+// functions we can start to understand the more advanced concepts of Swift such
+// as its support for Object Oriented Programming or OOP.
+
+// As the name implies, Object Oriented Programming is all about building our
+// programs out of Objects and to create these Object we will use a Swift keyword
+// called "class".
+
+// A class allows us to group variables and functions together as a new type.
+// Basically, it can be thought of as a blueprint that tells Java how to create
+// or build the objects that we need for our program.
+
+// The three main features of Object Oriented Programming are:
+
+// 1 - Encapsulation
+// 2 - Inheritance
+// 3 - Polymorphism
+
+//------------------------------------------------------------------------------
+
 // Classes
 
 // Just like Structures, Classes allow us to group variables and functions

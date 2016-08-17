@@ -53,9 +53,9 @@ if health <= 0  {
 
 // Swift Logical Operators
 
-// && - Returns true if both expressions are true
-// || - Returns true if either of the two expressions are true
-// !  - Negates or inverts the expression's result.
+// Logical AND (a && b) - Returns true if both expressions are true
+// Logical OR  (a || b) - Returns true if either of the two expressions are true
+// Logical NOT (!a)     - Negates or inverts the expression's result.
 
 let goldCoins = 800
 let rubies = 5
@@ -76,6 +76,7 @@ if goldCoins >= priceUsingGold && hasSword == true {
 
 // If the player has enough gold coins OR the player has enough ruby gems -
 // ask the player if he would like to purchase it.
+
 if goldCoins >= priceUsingGold || rubies >= priceUsingRubies {
     print("Would you like to purchase a magic sword?")
 } else {
