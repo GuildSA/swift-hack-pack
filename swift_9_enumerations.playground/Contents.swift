@@ -48,17 +48,17 @@ gamePadInput = GamePadDirection.Down
 
 switch gamePadInput {
     
-case .Up:
-    print("The Game pad is being pushed up!")
-    
-case .Down:
-    print("The Game pad is being pushed down!")
-    
-case .Left:
-    print("The Game pad is being pushed left!")
-    
-case .Right:
-    print("The Game pad is being pushed right!")
+    case .Up:
+        print("The Game pad is being pushed up!")
+        
+    case .Down:
+        print("The Game pad is being pushed down!")
+        
+    case .Left:
+        print("The Game pad is being pushed left!")
+        
+    case .Right:
+        print("The Game pad is being pushed right!")
 }
 
 //------------------------------------------------------------------------------

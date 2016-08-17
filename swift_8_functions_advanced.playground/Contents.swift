@@ -96,7 +96,7 @@ func addAllNumbers(numbers: Int...) -> Int {
     return total
 }
 
-addAllNumbers(1, 2, 3, 4, 5)
+print( addAllNumbers(1, 2, 3, 4, 5) )
 
 //------------------------------------------------------------------------------
 
