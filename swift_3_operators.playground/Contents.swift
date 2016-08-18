@@ -67,6 +67,24 @@ print("Hello, " + "world!")  // Equals the single String, "Hello, world".
 
 //------------------------------------------------------------------------------
 
+// Logical Operators
+
+// Logical operators modify or combine the Boolean logic values true and false. 
+// Swift supports the three standard logical operators found in C-based languages:
+//
+// Logical AND (a && b) - Returns true if both expressions are true
+// Logical OR  (a || b) - Returns true if either of the two expressions are true
+// Logical NOT (!a)     - Negates or inverts the expression's result.
+
+2 > 1 && 4 > 2   // true, because both 2 > 1 AND 4 > 2 are true.
+
+2 > 1 || 0 > 100 // true, because at least one of the expressions is true.
+
+!(1 == 1)        // false becuase 1 is equal to 1 but the ! inverts the result
+                 // and makes it false.
+
+//------------------------------------------------------------------------------
+
 // The Remainder Operator
 
 // The remainder operator (a % b) works out how many multiples of b will fit
