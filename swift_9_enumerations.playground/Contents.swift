@@ -78,6 +78,8 @@ var team1 = Team.A
 
 print(team1)
 
+print(team1.rawValue)
+
 // If we assign Raw Values to the enumeration's, the enumeration automatically
 // receives an initializer that can be used to create a new enumeration
 // variable by passing in one of the Raw Values.
