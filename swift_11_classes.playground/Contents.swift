@@ -12,7 +12,7 @@ import UIKit
 // called "class".
 
 // A class allows us to group variables and functions together as a new type.
-// Basically, it can be thought of as a blueprint that tells Java how to create
+// Basically, it can be thought of as a blueprint that tells Swift how to create
 // or build the objects that we need for our program.
 
 // The three main features of Object Oriented Programming are:
