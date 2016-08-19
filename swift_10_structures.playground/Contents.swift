@@ -85,7 +85,7 @@ struct Enemy {
         print("New Enemy Initialized with default values!")
     }
     
-    init(defaultWeapon weapon:String, attackDamage damage: Int, healthPoints health:Int) {
+    init(weapon: String, damage: Int, health: Int) {
         print("New Enemy Initialized with custom values!")
         self.weapon = weapon
         self.attackDamage = damage
@@ -107,7 +107,7 @@ var enemy1 = Enemy()
 enemy1.attack()
 enemy1.applyDamage(15)
 
-var enemy2 = Enemy(defaultWeapon: "Sword", attackDamage: 25, healthPoints: 100)
+var enemy2 = Enemy(weapon: "Sword", damage: 25, health: 100)
 
 enemy2.attack()
 enemy2.applyDamage(5)

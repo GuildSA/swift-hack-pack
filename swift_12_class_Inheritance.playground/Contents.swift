@@ -1,5 +1,5 @@
 
-import UIKit
+//------------------------------------------------------------------------------
 
 // Inheritance
 
@@ -21,7 +21,7 @@ class Enemy {
         print("New Enemy Initialized with default values!")
     }
     
-    init(defaultWeapon weapon:String, attackDamage damage: Int, healthPoints health:Int) {
+    init(weapon: String, damage: Int, health: Int) {
         print("New Enemy Initialized with custom values!")
         self.weapon = weapon
         self.attackDamage = damage
@@ -107,12 +107,3 @@ warlock.attack()
 warlock.applyDamage(10)
 warlock.castSpell()
 warlock.teleport()
-
-//------------------------------------------------------------------------------
-
-// Keep in mind that we can not create a Warlock using the custom initializer
-// defined by Enemy, so the line below will not compile! You will need to either
-// override it or define a completely new initializer just for Warlocks.
-
-//var bossWarlock = Warlock(defaultWeapon: "Staff of Lightning", attackDamage: 45, healthPoints: 250)
-

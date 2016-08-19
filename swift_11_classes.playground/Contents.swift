@@ -1,6 +1,4 @@
 
-import UIKit
-
 //------------------------------------------------------------------------------
 
 // Now that we've covered all the basics of working with variables and
@@ -40,7 +38,7 @@ class Enemy {
         print("New Enemy Initialized with default values!")
     }
     
-    init(defaultWeapon weapon:String, attackDamage damage: Int, healthPoints health:Int) {
+    init(weapon: String, damage: Int, health: Int) {
         print("New Enemy Initialized with custom values!")
         self.weapon = weapon
         self.attackDamage = damage
@@ -48,7 +46,6 @@ class Enemy {
     }
     
     deinit {
-        
         // If required, perform deinitialization here!
         print("Enemy Deinitialized!")
     }
@@ -73,7 +70,7 @@ enemy.attack()
 enemy.applyDamage(10)
 
 
-var bossEnemy = Enemy(defaultWeapon: "Magic Sword", attackDamage: 35, healthPoints: 200)
+var bossEnemy = Enemy(weapon: "Magic Sword", damage: 35, health: 200)
 
 print(bossEnemy.weapon)
 print(bossEnemy.attackDamage)
