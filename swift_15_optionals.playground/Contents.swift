@@ -64,7 +64,7 @@ print("The player's health is \(player1.health) points.")
 // since it might be nil, we need to tell Swift how to handle it when
 // un-wrapping it for access.
 
-//print("The player's weapon current weapon is \(player1.weapon.name).")
+//print("The player's current weapon is \(player1.weapon.name).")
 
 
 // We can fix this error by using the '!' symbol. When we put a '!' behind
@@ -72,7 +72,7 @@ print("The player's health is \(player1.health) points.")
 // property is optional - go head and un-wrap it for access". But, we should
 // only use '!' if we're totally sure that this is safe.
 
-//print("The player's weapon current weapon is \(player1.weapon!.name).")
+//print("The player's current weapon is \(player1.weapon!.name).")
 
 
 // If we're not sure if the player will have a weapon or not, but we want
