@@ -108,7 +108,7 @@ print(combineTextClosure("Text combined by a ", "closure!"))
 // 'workClosure' and it takes a single string as an argument and returns
 // nothing: (String) -> ()
 
-func doSomeDelayedWork(workClosure: (String) -> (), timeToDelay: Int64) {
+func doSomeDelayedWork(timeToDelay: Int64, workToDo: (String) -> ()) {
     
     // We'll use a call to dispatch_after() to delay the execution of some code to
     // 3 seconds in the future.
@@ -121,30 +121,32 @@ func doSomeDelayedWork(workClosure: (String) -> (), timeToDelay: Int64) {
         
         // Since the parameter 'workClosure' is a closure, we can execute
         // it's code by calling the closure like a function.
-        workClosure("Calling closure delayed for \(timeToDelay) seconds!")
+        workToDo("Calling closure delayed for \(timeToDelay) seconds!")
     }
 }
 
-// Next, we'll create a closure that matches the closure type specified by the
-// function above called 'doSomeDelayedWork'
+// To test our function that takes a closure, we could create a closure 
+// that matches the closure type specified by the function above called 
+// 'doSomeDelayedWork' and then pass it as an argument like so.
 
 var myWorkToDelay: (String) -> () = { message in
-    
     print(message)
 }
 
-print("Before Calls to doSomeDelayedWork")
-
-doSomeDelayedWork( myWorkToDelay, timeToDelay: 3 )
+doSomeDelayedWork( 2, workToDo: myWorkToDelay )
 
 
 // Of course, it is more typical to see the closure passed directly into the
 // function call instead being assigned to a var first.
-doSomeDelayedWork( { message in
-    print(message)
-    }, timeToDelay: 6 )
+doSomeDelayedWork( 4, workToDo: { message in print(message) } )
 
-print("After Calls to doSomeDelayedWork")
+
+// Here's how to call the same function using the Trailing Closure syntax.
+// Trailing closures are most useful when the code in the closure is too 
+// complex to write out as a single line of code.
+doSomeDelayedWork(6) { message in
+    print(message)
+}
 
 
 // Since this sample makes use of some asynchronous code, we will need to tell
