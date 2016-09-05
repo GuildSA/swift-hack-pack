@@ -133,12 +133,12 @@ var myWorkToDelay: (String) -> () = { message in
     print(message)
 }
 
-doSomeDelayedWork( 2, workToDo: myWorkToDelay )
+doSomeDelayedWork(2, workToDo: myWorkToDelay)
 
 
 // Of course, it is more typical to see the closure passed directly into the
 // function call instead being assigned to a var first.
-doSomeDelayedWork( 4, workToDo: { message in print(message) } )
+doSomeDelayedWork(4, workToDo: { message in print(message) })
 
 
 // Here's how to call the same function using the Trailing Closure syntax.
