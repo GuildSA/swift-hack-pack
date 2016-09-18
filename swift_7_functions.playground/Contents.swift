@@ -35,7 +35,7 @@ func sayGameOver2(playersName: String) {
 // will be passed into the function and be accessible using the parameter's name
 // which is called "playersName"
 
-sayGameOver2("Robert")
+sayGameOver2(playersName: "Robert")
 
 //------------------------------------------------------------------------------
 
@@ -55,11 +55,11 @@ func sayGameOver3(playersName: String) -> String {
 // Here we call our function and then catch the return value in our var called
 // gameOverMessage.
 
-var gameOverMessage = sayGameOver3("Robert")
+var gameOverMessage = sayGameOver3(playersName: "Robert")
 
 print(gameOverMessage)
 
-gameOverMessage = sayGameOver3("Jennifer")
+gameOverMessage = sayGameOver3(playersName: "Jennifer")
 
 print(gameOverMessage)
 
@@ -80,8 +80,8 @@ func sayGameOver4(playersName: String, playersScore: Int) -> String {
 // the second argument, we must specify the parameter's name when we pass the
 // value.
 
-print( sayGameOver4("Kim", playersScore: 2500) )
-print( sayGameOver4("Charles", playersScore: 2000) )
+print( sayGameOver4(playersName: "Kim", playersScore: 2500) )
+print( sayGameOver4(playersName: "Charles", playersScore: 2000) )
 
 
 //------------------------------------------------------------------------------
@@ -111,13 +111,12 @@ print( sayGameOver5(playersName: "Debbie", playersScore: 3000) )
 
 //------------------------------------------------------------------------------
 
-// Omitting External Parameter Names
+// Omitting Parameter Names
 
-// If you do not want to use an external name for the second or subsequent
-// parameters of a function, replace the external parameter names with an
-// underscore (_) instead.
+// If you do not want to use parameter names when calling the function, replace 
+// the external parameter names with an underscore (_) instead.
 
-func sayGameOver6(name: String, _ score: Int) -> String {
+func sayGameOver6(_ name: String, _ score: Int) -> String {
     
     let text = "Game Over, \(name)! Your final score is \(score)"
     
@@ -143,6 +142,6 @@ func someFunction(someValue: Int = 42) {
     print(someValue)
 }
 
-someFunction(6)
+someFunction(someValue: 6)
 someFunction()
 

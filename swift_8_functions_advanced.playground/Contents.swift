@@ -58,7 +58,7 @@ print("The high score is \(highScoreData2.score) held by \(highScoreData2.name)"
 // the variables that were passed into the function. To support this we mark
 // the parameters that can be changed as inout parameters.
 
-func swapTwoInts(inout a: Int, inout _ b: Int) {
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
     
     let temp = a // Let 'temp' hold the value of 'a'.
     a = b        // Set 'a' to whatever 'b' is.
@@ -96,7 +96,7 @@ func addAllNumbers(numbers: Int...) -> Int {
     return total
 }
 
-print( addAllNumbers(1, 2, 3, 4, 5) )
+print( addAllNumbers(numbers: 1, 2, 3, 4, 5) )
 
 //------------------------------------------------------------------------------
 
@@ -104,9 +104,9 @@ print( addAllNumbers(1, 2, 3, 4, 5) )
 
 // It's possible to declare a function inside another function and then use it!
 
-func processNumbers(number1: Int, _ number2:Int) -> Int {
+func processNumbers(_ number1: Int, _ number2: Int) -> Int {
     
-    func add(a: Int, _ b: Int) -> Int {
+    func add(_ a: Int, _ b: Int) -> Int {
         return a + b
     }
     

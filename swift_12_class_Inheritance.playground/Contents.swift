@@ -92,7 +92,7 @@ print(enemy.attackDamage)
 print(enemy.healthPoints)
 
 enemy.attack()
-enemy.applyDamage(10)
+enemy.applyDamage(damage: 10)
 
 
 
@@ -104,6 +104,6 @@ print(warlock.healthPoints)
 print(warlock.magicPoints)
 
 warlock.attack()
-warlock.applyDamage(10)
+warlock.applyDamage(damage: 10)
 warlock.castSpell()
 warlock.teleport()

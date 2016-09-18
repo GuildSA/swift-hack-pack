@@ -19,7 +19,7 @@
 // For example, here’s how you might represent the error conditions of operating
 // a vending machine.
 
-enum VendingMachineError: ErrorType {
+enum VendingMachineError: Error {
     
     case InvalidSelection
     case OutOfStock
@@ -69,7 +69,7 @@ class VendingMachine {
         newItem.count -= 1
         inventory[name] = newItem
         
-        dispenseSnack(name)
+        dispenseSnack(snack: name)
     }
 }
 
@@ -139,7 +139,7 @@ vendingMachine2.coinsDeposited = 4
 
 do {
     
-    try buyFavoriteSnack("Eve", vendingMachine: vendingMachine2)
+    try buyFavoriteSnack(person: "Eve", vendingMachine: vendingMachine2)
     
 } catch VendingMachineError.InvalidSelection {
     

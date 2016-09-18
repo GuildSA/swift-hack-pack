@@ -35,7 +35,7 @@ myNumber.squared
 
 var hello: String = "Hello, world!"
 
-print(hello.containsString("world"))
+print(hello.contains("world"))
 
 // This extension allows any String value to return whether or not it is a
 // holding a value that might be a Gmail email address.
@@ -43,7 +43,7 @@ print(hello.containsString("world"))
 extension String {
     
     var isGmailAccount: Bool {
-        return self.containsString("@gmail.com")
+        return self.contains("@gmail.com")
     }
     
 }

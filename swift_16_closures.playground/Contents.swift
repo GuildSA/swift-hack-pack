@@ -1,6 +1,6 @@
 
 import UIKit
-import XCPlayground // Needed to support asynchronous code in this sample.
+import PlaygroundSupport // Needed to support asynchronous code in this sample.
 
 //------------------------------------------------------------------------------
 
@@ -47,7 +47,7 @@ func combineTextFunc(text1: String, text2: String) -> String {
     return text1 + text2
 }
 
-print(combineTextFunc("Text combined by a ", text2:"function!"))
+print(combineTextFunc(text1: "Text combined by a ", text2:"function!"))
 
 
 // Again, we'll create a variable that points to a closure which is capable of
@@ -108,21 +108,21 @@ print(combineTextClosure("Text combined by a ", "closure!"))
 // 'workClosure' and it takes a single string as an argument and returns
 // nothing: (String) -> ()
 
-func doSomeDelayedWork(timeToDelay: Int64, workToDo: (String) -> ()) {
+func doSomeDelayedWork(timeToDelay: Double, workToDo: @escaping (String) -> ()) {
     
-    // We'll use a call to dispatch_after() to delay the execution of some code to
-    // 3 seconds in the future.
+    // We'll use a call to DispatchQueue.main.asyncAfter to delay the execution 
+    // of some number of seconds in the future.
+
+    let dispatchTime = DispatchTime.now() + Double(Int64(timeToDelay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
     
-    let delayTime = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), timeToDelay * Int64(NSEC_PER_SEC))
-    
-    dispatch_after(delayTime, dispatch_get_main_queue()) {
+    DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
         
         // Put the code which should be executed with a delay here:
-        
+
         // Since the parameter 'workClosure' is a closure, we can execute
         // it's code by calling the closure like a function.
         workToDo("Calling closure delayed for \(timeToDelay) seconds!")
-    }
+    })
 }
 
 // To test our function that takes a closure, we could create a closure 
@@ -133,18 +133,18 @@ var myWorkToDelay: (String) -> () = { message in
     print(message)
 }
 
-doSomeDelayedWork(2, workToDo: myWorkToDelay)
+doSomeDelayedWork(timeToDelay: 2, workToDo: myWorkToDelay)
 
 
 // Of course, it is more typical to see the closure passed directly into the
 // function call instead being assigned to a var first.
-doSomeDelayedWork(4, workToDo: { message in print(message) })
+doSomeDelayedWork(timeToDelay: 4, workToDo: { message in print(message) })
 
 
 // Here's how to call the same function using the Trailing Closure syntax.
 // Trailing closures are most useful when the code in the closure is too 
 // complex to write out as a single line of code.
-doSomeDelayedWork(6) { message in
+doSomeDelayedWork(timeToDelay: 6) { message in
     print(message)
 }
 
@@ -153,4 +153,4 @@ doSomeDelayedWork(6) { message in
 // them playground to continue spinning the main run loop, so the asynchronous
 // code has a chance to run till completion.
 
-XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
+PlaygroundPage.current.needsIndefiniteExecution = true

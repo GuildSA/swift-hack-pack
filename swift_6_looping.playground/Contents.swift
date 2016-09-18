@@ -14,7 +14,7 @@ for index in 0...3 {
 
 // This for-in loop also uses a range of numbers to print out a test message,
 // but calls reverse on it to print the index values in reverse order.
-for index in (0...3).reverse() {
+for index in (0...3).reversed() {
     print("Current index reversed range is: \(index)")
 }
 
@@ -67,7 +67,7 @@ for _ in 1...3 {
 // We can use the stride method to create a sequence of numbers that can 
 // increment a for loop by some value other than 1.
 
-for index in 0.stride(to: 10, by: 2) {
+for index in stride(from: 0, to: 10, by: 2) {
     print("Stride index: \(index)")
 }
 

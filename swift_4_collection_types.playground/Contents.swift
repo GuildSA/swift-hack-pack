@@ -47,11 +47,11 @@ weaponsList.append("Long Bow")
 
 // If we want to add something at a certain index, we can use a special version
 // of insert to insert a new value at that index.
-weaponsList.insert("Broad Sword", atIndex: 2)
+weaponsList.insert("Broad Sword", at: 2)
 
 // Likewise, we can also remove items with calls like removeAtIndex, removeFirst,
 // or removeLast
-weaponsList.removeAtIndex(1)
+weaponsList.remove(at: 1)
 
 print(weaponsList)
 

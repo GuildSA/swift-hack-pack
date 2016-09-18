@@ -10,7 +10,7 @@ import UIKit
 
 // Supose we wrote a function that could swap two Ints around.
 
-func swapTwoInts(inout a: Int, inout _ b: Int) {
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
     let tempA = a
     a = b
     b = tempA
@@ -28,7 +28,7 @@ print("After calling swapTwoInts: myInt1 is now \(myInt1), and myInt2 is now \(m
 
 // We could write a new function that swaps Floats like so:
 
-func swapTwoFloats(inout a: Float, inout _ b: Float) {
+func swapTwoFloats(_ a: inout Float, _ b: inout Float) {
     let tempA = a
     a = b
     b = tempA
@@ -56,7 +56,7 @@ print("After call swapTwoFloats: myFloat1 is now \(myFloat1), and myFloat2 is no
 // swapTwoInts function from above, called swapTwoValues which can swap any two
 // values regardless of the type.
 
-func swapTwoValues<T>(inout a: T, inout _ b: T) {
+func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
     let tempA = a
     a = b
     b = tempA

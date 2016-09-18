@@ -14,9 +14,10 @@ let gameTitle = "Angry Birds"
 // And this is an Int since we assigned it a whole number with no fractional part.
 var score = 1500
 
-// You can check the type of a variable by accessing the property dynamicType.
-print( "gameTitle is of type: \(gameTitle.dynamicType)")
-print( "score is of type: \(score.dynamicType)")
+// You can check the type of a variable by passing it into a function called
+// type(of:)
+print( "gameTitle is of type: \(type(of: gameTitle))")
+print( "score is of type: \(type(of: score))")
 
 //------------------------------------------------------------------------------
 
@@ -33,7 +34,7 @@ var playersScore: Int
 
 let PI = 3.1415926
 
-print( "PI is of type: \(PI.dynamicType)")
+print( "PI is of type: \(type(of: PI))")
 
 // The reason we get two types, Float and Double, for fractional numbers is
 // because we get to choose how much accuracy we want. A Float takes up less

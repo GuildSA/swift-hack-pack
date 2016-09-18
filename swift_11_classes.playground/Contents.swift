@@ -67,7 +67,7 @@ print(enemy.attackDamage)
 print(enemy.healthPoints)
 
 enemy.attack()
-enemy.applyDamage(10)
+enemy.applyDamage(damage: 10)
 
 
 var bossEnemy = Enemy(weapon: "Magic Sword", damage: 35, health: 200)
@@ -77,7 +77,7 @@ print(bossEnemy.attackDamage)
 print(bossEnemy.healthPoints)
 
 bossEnemy.attack()
-bossEnemy.applyDamage(10)
+bossEnemy.applyDamage(damage: 10)
 
 //------------------------------------------------------------------------------
 

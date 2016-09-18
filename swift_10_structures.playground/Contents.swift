@@ -105,12 +105,12 @@ struct Enemy {
 var enemy1 = Enemy()
 
 enemy1.attack()
-enemy1.applyDamage(15)
+enemy1.applyDamage(damage: 15)
 
 var enemy2 = Enemy(weapon: "Sword", damage: 25, health: 100)
 
 enemy2.attack()
-enemy2.applyDamage(5)
+enemy2.applyDamage(damage: 5)
 
 
 
