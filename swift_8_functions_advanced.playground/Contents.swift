@@ -85,7 +85,7 @@ print("var1 = \(var1), var2 = \(var2)") // After Swap
 // A variadic parameter allow us to pass zero or more values of a specified
 // type, and then get access to them.
 
-func addAllNumbers(numbers: Int...) -> Int {
+func addAllNumbers(_ numbers: Int...) -> Int {
     
     var total: Int = 0
     
@@ -96,7 +96,7 @@ func addAllNumbers(numbers: Int...) -> Int {
     return total
 }
 
-print( addAllNumbers(numbers: 1, 2, 3, 4, 5) )
+print( addAllNumbers( 1, 2, 3, 4, 5) )
 
 //------------------------------------------------------------------------------
 
