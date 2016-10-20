@@ -8,13 +8,13 @@ import UIKit
 // enables you to work with those values in a type-safe way within your code.
 
 enum GamePadDirection {
-    case Up
-    case Down
-    case Left
-    case Right
+    case up
+    case down
+    case left
+    case right
 }
 
-var gamePadInput = GamePadDirection.Up
+var gamePadInput = GamePadDirection.up
 
 print("Game pad is being pushed: \(gamePadInput).")
 
@@ -44,20 +44,20 @@ print("Game pad is being pushed: \(gamePadInput).")
 // A switch statement is a great way to process the value of a variable that is
 // an enumeration type.
 
-gamePadInput = GamePadDirection.Down
+gamePadInput = GamePadDirection.down
 
 switch gamePadInput {
     
-    case .Up:
+    case .up:
         print("The Game pad is being pushed up!")
         
-    case .Down:
+    case .down:
         print("The Game pad is being pushed down!")
         
-    case .Left:
+    case .left:
         print("The Game pad is being pushed left!")
         
-    case .Right:
+    case .right:
         print("The Game pad is being pushed right!")
 }
 
@@ -69,12 +69,12 @@ switch gamePadInput {
 // as long as they are all of the same type and all unique.
 
 enum Team: String {
-    case A = "Alpha"
-    case B = "Bravo"
-    case C = "Charlie"
+    case a = "Alpha"
+    case b = "Bravo"
+    case c = "Charlie"
 }
 
-var team1 = Team.A
+var team1 = Team.a
 
 print(team1)
 
@@ -106,22 +106,22 @@ print(team3)
 
 enum GameServerErrors: Int {
     
-    case FindLevelData = 500
-    case LoadLevelData // This will automatically bet set to 501
+    case findLevelData = 500
+    case loadLevelData // This will automatically bet set to 501
     
-    case FindPlayerData // This will automatically bet set to 502
-    case LoadPlayerData // This will automatically bet set to 503
-    case SavePlayerData // This will automatically bet set to 504
+    case findPlayerData // This will automatically bet set to 502
+    case loadPlayerData // This will automatically bet set to 503
+    case savePlayerData // This will automatically bet set to 504
 }
 
 // If you want to know what the raw value of the enumeration value is, you can
 // call .rawValue on an enumeration variable to access it.
 
-var error = GameServerErrors.LoadLevelData
+var error = GameServerErrors.loadLevelData
 
 print(error.rawValue)
 
-error = GameServerErrors.SavePlayerData
+error = GameServerErrors.savePlayerData
 
 print(error.rawValue)
 
@@ -134,34 +134,34 @@ print(error.rawValue)
 
 enum WeaponTypes {
     
-    case Sword(String, Int)
-    case Bow(String, Int)
-    case WoodenClub(Int)
-    case Rock(Int)
+    case sword(String, Int)
+    case bow(String, Int)
+    case woodenClub(Int)
+    case rock(Int)
 }
 
-var playerWeapon = WeaponTypes.Sword("Short Sword", 25)
+var playerWeapon = WeaponTypes.sword("Short Sword", 25)
 
-playerWeapon = .Bow("Long Bow", 10)
+playerWeapon = .bow("Long Bow", 10)
 
-playerWeapon = .WoodenClub(2)
+playerWeapon = .woodenClub(2)
 
-playerWeapon = .Rock(1)
+playerWeapon = .rock(1)
 
 // Associated values can be extracted as part of a switch statement.
 
 switch playerWeapon {
     
-    case .Sword(let name, let damage):
+    case .sword(let name, let damage):
         print("The player is attacking with a \(name) for \(damage) points of damage.")
         
-    case .Bow(let name, let damage):
+    case .bow(let name, let damage):
         print("The player is attacking with a \(name) for \(damage) points of damage.")
         
-    case .WoodenClub(let damage):
+    case .woodenClub(let damage):
         print("The player is attacking with a WoodenClub for \(damage) points of damage.")
         
-    case .Rock(let damage):
+    case .rock(let damage):
         print("The player is attacking with a rock for \(damage) points of damage.")
 }
 
@@ -175,14 +175,14 @@ switch playerWeapon {
 
 enum ArmorTypes {
     
-    case Leather
-    case ChainMail
-    case Plate
+    case leather
+    case chainMail
+    case plate
     
     init() {
         
         // Everyone has at least Leather armor!
-        self = .Leather
+        self = .leather
     }
 }
 
