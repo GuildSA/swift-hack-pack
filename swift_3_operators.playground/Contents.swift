@@ -80,7 +80,7 @@ print("Hello, " + "world!")  // Equals the single String, "Hello, world".
 
 2 > 1 || 0 > 100 // true, because at least one of the expressions is true.
 
-!(1 == 1)        // false becuase 1 is equal to 1 but the ! inverts the result
+!(1 == 1)        // false because 1 is equal to 1 but the ! inverts the result
                  // and makes it false.
 
 //------------------------------------------------------------------------------

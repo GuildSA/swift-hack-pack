@@ -45,9 +45,13 @@ print(weaponsList[2])
 // method always adds to the end of the array.
 weaponsList.append("Long Bow")
 
+print(weaponsList)
+
 // If we want to add something at a certain index, we can use a special version
 // of insert to insert a new value at that index.
 weaponsList.insert("Broad Sword", at: 2)
+
+print(weaponsList)
 
 // Likewise, we can also remove items with calls like removeAtIndex, removeFirst,
 // or removeLast

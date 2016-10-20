@@ -94,7 +94,7 @@ var answer = 0
 
 while answer < 100 {
     
-    print("Testing answer of \(answer)")
+    print("Testing answer \(answer)")
     
     if answer == 42 {
         
@@ -117,7 +117,7 @@ while answer < 50 {
     
     answer += 1
     
-    print("Testing answer of \(answer)")
+    print("Testing answer \(answer)")
     
     if answer != 42 {
         
