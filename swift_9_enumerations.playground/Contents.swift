@@ -49,16 +49,16 @@ gamePadInput = GamePadDirection.down
 switch gamePadInput {
     
     case .up:
-        print("The Game pad is being pushed up!")
+        print("The game pad is being pushed up!")
         
     case .down:
-        print("The Game pad is being pushed down!")
+        print("The game pad is being pushed down!")
         
     case .left:
-        print("The Game pad is being pushed left!")
+        print("The game pad is being pushed left!")
         
     case .right:
-        print("The Game pad is being pushed right!")
+        print("The game pad is being pushed right!")
 }
 
 //------------------------------------------------------------------------------
@@ -86,14 +86,14 @@ print(team1.rawValue)
 
 var team2 = Team(rawValue: "Bravo")
 
-print(team2)
+print("\(team2)")
 
 
 // If the raw value that was passed in can not be turned into an enumeration
 // the initializer will return nil.
 var team3 = Team(rawValue: "X-Ray")
 
-print(team3)
+print("\(team3)")
 
 
 //------------------------------------------------------------------------------
