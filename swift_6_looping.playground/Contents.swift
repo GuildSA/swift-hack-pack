@@ -44,12 +44,12 @@ for (name, score) in playerScores {
 
 //------------------------------------------------------------------------------
 
-// String provides a characters property that exposes a character collection
-// view which can be used to feed data to a For-In loop.
+// If a String is passed to a For-In loop, it will be treated as a character
+// collection which can be iterated through character by character.
 
 var myString = "LOL"
 
-for character in myString.characters {
+for character in myString {
     print(character)
 }
 

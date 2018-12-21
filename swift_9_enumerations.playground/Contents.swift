@@ -86,14 +86,14 @@ print(team1.rawValue)
 
 var team2 = Team(rawValue: "Bravo")
 
-print("\(team2)")
+print("\(team2 as Team?)")
 
 
 // If the raw value that was passed in can not be turned into an enumeration
 // the initializer will return nil.
 var team3 = Team(rawValue: "X-Ray")
 
-print("\(team3)")
+print("\(team3 as Team?)")
 
 
 //------------------------------------------------------------------------------
@@ -189,7 +189,4 @@ enum ArmorTypes {
 var armor = ArmorTypes()
 
 print("Default armor type is: \(armor)")
-
-
-
 

@@ -87,8 +87,3 @@ swapTwoValues( &myString1, &myString2 )
 
 print("After call swapTwoFloats: myString1 is now \(myString1), and myString2 is now \(myString2)")
 
-
-
-
-
-
